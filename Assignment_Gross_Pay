@@ -1,11 +1,19 @@
 # Write a program to prompt the user for hours and rate per hour using input to compute gross pay. Pay the hourly rate for the hours up to 40 and 1.5 times the hourly rate for all hours worked above 40 hours. Use 45 hours and a rate of 10.50 per hour to test the program 
-hrs=input("Enter Hours:")
-h=float(hrs)
-rate=input("Enter Rate:")
-r=float(rate)
+while True:
+    hrs = input("Enter Hours: ")
+    rate = input("Enter Rate: ")
+    
+    try:
+        h = float(hrs)
+        r = float(rate)
+        break  # Break out of the loop if the input is valid
+    except:
+        print("Error, please input numeric data")
+        # The loop will continue, prompting the user to enter the data again
 
-if h<=40:
-    pay=h*r
+if h <= 40:
+    pay = h * r
 else:
-    pay=40*r+(h-40)*r*1.5
-print(pay)
+    pay = 40 * r + (h - 40) * r * 1.5
+
+print("Pay:", pay)
