@@ -1,0 +1,23 @@
+# Writed a program to read through the mbox-short.txt and figure out the distribution by hour of the day for each of the messages. Y
+
+name = input("Enter file:")
+filehandle = open(name)
+lst = dict()
+#read the line
+for line in filehandle:
+    line = line.strip()
+    if line.startswith('From '):
+        words = line.split()
+        date = words[5]
+        #print(date)
+        hours = date.split(':')
+        hour = hours[0]
+        #print(hour)
+        lst[hour] = lst.get(hour,0)+1
+d = lst.items()
+temp = list()
+for k,v in d:
+    temp.append((k,v))
+temp = sorted(temp)
+for k,v in temp:
+    print(k,v)
